@@ -17,7 +17,6 @@ buttons.forEach((button) => {
             screenVal = screenVal + e.target.innerHTML
             screen.value = screenVal;
         }
-        console.log(screenVal)
       
     })
 })
