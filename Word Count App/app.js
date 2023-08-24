@@ -9,12 +9,19 @@ function countingWords() {
   let inputStringInitial = document.getElementById("input").value;
   let inputString = inputStringInitial.replace(/  +/g, ' ').trim();
   var numWords = 0;
-  for (let i = 0; i < inputString.length; i++) {
-    var currentCharacter = inputString[i];
-    if (currentCharacter == " ") {
-      numWords += 1;
-    }
+  if(inputString === ""){
+    alert("Enter Something")
   }
-  numWords = numWords+1;
+  else{
+    for (let i = 0; i < inputString.length; i++) {
+      var currentCharacter = inputString[i];
+      if (currentCharacter == " ") {
+        numWords += 1;
+      }
+    }
+    numWords = numWords+1;
   document.getElementById('count').innerText = numWords;
+  }
+  
+  
 } 

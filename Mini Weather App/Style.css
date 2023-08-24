@@ -1,36 +1,38 @@
-*{
+* {
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
     color: white;
 }
-body{
+
+body {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     background-color: rgba(0, 0, 0, 0.89);
     height: 100vh;
+    width: 100vw;
 }
 
-.card{
-    background: linear-gradient(135deg, #00feba,  #7365c9);
-    width: 25vw;
+.card {
+    background: linear-gradient(135deg, #00feba, #7365c9);
     padding: 30px 20px;
     border-radius: 30px;
     transition: transform 1s;
 }
-.card:hover{
+
+.card:hover {
     transform: scale(1.05);
 }
 
-.search{
+.search {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.search input{
+.search input {
     border-radius: 30px;
     border: none;
     padding: 20px;
@@ -38,7 +40,7 @@ body{
     color: black;
 }
 
-.search button{
+.search button {
     border: none;
     padding: 10px;
     border-radius: 50%;
@@ -47,21 +49,23 @@ body{
     height: 50px;
     transition: transform .2s;
 }
-.search button:hover{
+
+.search button:hover {
     transform: scale(1.1)
 }
 
-.search button img{
+.search button img {
     width: 20px;
     height: 20px;
 }
 
-.hero1{
+.hero1 {
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.details{
+
+.details {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -69,41 +73,66 @@ body{
     font-size: 22px;
 }
 
-.details2{
+.details2 {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-top: 20px;
 }
 
-.humidity{
+.humidity {
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 15px;
 }
-.wind{
+
+.wind {
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 15px;
 }
-.footer{
+
+.footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-top: 10px;
 }
 
-.image2{
+.image2 {
     width: 35px;
 }
 
-.weather{
+.weather {
     display: none;
 }
 
-.heading{
+.heading {
     padding: 20px;
 }
 
+
+@media screen and (max-width:767px) {
+    * {
+        font-size: 16px;
+    }
+
+    .search input {
+        border-radius: 30px;
+        border: none;
+        padding: 14px;
+        width: 50vw;
+        color: black;
+    }
+
+    .search button {
+        padding: 5px;
+        border-radius: 50%;
+        background-color: white;
+        width: 40px;
+        height: 40px;
+        transition: transform .2s;
+    }
+}

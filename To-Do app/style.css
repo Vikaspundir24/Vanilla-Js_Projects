@@ -7,7 +7,6 @@
 
 .container{
     width: 100%;
-    min-width: 100vh;
     padding: 10px;
     height: 100vh;
     display: flex;
@@ -112,5 +111,13 @@
     background: #edeef0;
 }
 
-
+@media screen and (max-width:767px) {
+    
+    .add button{
+        width:19vw;
+    }
+    .todo{
+        padding: 20px;
+    }
+}
 

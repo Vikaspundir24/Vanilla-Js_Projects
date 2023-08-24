@@ -42,3 +42,14 @@
 #input{
     padding: 4px;
 }
+
+@media screen and (max-width: 767px){
+    #input{
+        padding: 4px;
+        width: 78vw;
+        padding: 5px;
+    }
+    .container{
+        width: 85vw;
+    }
+}
