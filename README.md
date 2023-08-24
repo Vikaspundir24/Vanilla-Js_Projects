@@ -6,3 +6,4 @@ To-Do App: https://vikaspundir24.github.io/Vanilla-Js_Projects/To-Do%20app<br/>
 Calculator App: https://vikaspundir24.github.io/Vanilla-Js_Projects/Calculator%20App<br/>
 Stopwatch App: https://vikaspundir24.github.io/Vanilla-Js_Projects/Stopwatch%20App<br/>
 Countdown App: https://vikaspundir24.github.io/Vanilla-Js_Projects/CountDown%20App<br/>
+Word Count App: https://vikaspundir24.github.io/Vanilla-Js_Projects/Word%20Count%20App<br/>
