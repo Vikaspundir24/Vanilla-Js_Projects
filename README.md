@@ -7,3 +7,4 @@ Calculator App: https://vikaspundir24.github.io/Vanilla-Js_Projects/Calculator%2
 Stopwatch App: https://vikaspundir24.github.io/Vanilla-Js_Projects/Stopwatch%20App<br/>
 Countdown App: https://vikaspundir24.github.io/Vanilla-Js_Projects/CountDown%20App<br/>
 Word Count App: https://vikaspundir24.github.io/Vanilla-Js_Projects/Word%20Count%20App<br/>
+Palindrome Checker Game: https://vikaspundir24.github.io/Vanilla-Js_Projects/Palindrome%20Checker%20Game<br/>
