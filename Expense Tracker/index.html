@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz,wght@8..144,400;8..144,600&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="full">
+        <div class="container1">
+            <h3><span class="green">Credit</span>/<span class="red">Debit</span> Amount</h3>
+            <form class="form">
+                <label for="option">Choose Type:</label>
+                <select name="credit/debit" id="">
+                    <option value="" class="green">Credit</option>
+                    <option value="" class="red">Debit</option>
+                </select>
+                <label for="where"><span>From/On:</span></label>
+                <input type="text" name="" id="">
+                <label for="amount">Enter Amount in Rs</label>
+                <input type="number" name="" id="" min="0">
+                <button type="submit" value="submit">Submit</button>
+            </form>
+        </div>
+        <div class="container2">
+            <h3>Transactions</h3>
+            <div class="list">
+                <li>Expense1</li>
+                <li>Expense2</li>
+                <li>Expense3</li>
+                <li>Expense3</li>
+                <li>Expense3</li>
+                <li>Expense3</li>
+                <li>Expense3</li>
+                <li>Expense3</li>
+                <li>Expense3</li>
+                <li>Expense3</li>
+            </div>
+            <div class="balance-sheet">
+                <div class="balance">
+                    <h3><span class="green">Remaining</span> Balance</h3>
+                    <h3 class="green"><span>2000</span>Rs</h3>
+                </div>
+                <div class="debited">
+                    <h3>Total <span class="red">Expenditure</span></h3>
+                    <h3 class="red"><span>5000</span>Rs</h3>
+                </div>
+               
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
