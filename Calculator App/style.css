@@ -77,9 +77,16 @@
     }
 }
 @media screen and  (max-width: 320px){
+    .container{
+        gap: 10px;
+    }
     .screen input{
         width: 54vw;
         height: 2em;
         padding: 4px;
+    }
+    .row button{
+        height: 5vh;
+        width:10vw;
     }
 }
