@@ -9,3 +9,4 @@ Countdown App: https://vikaspundir24.github.io/Vanilla-Js_Projects/CountDown%20A
 Word Count App: https://vikaspundir24.github.io/Vanilla-Js_Projects/Word%20Count%20App<br/>
 Palindrome Checker Game: https://vikaspundir24.github.io/Vanilla-Js_Projects/Palindrome%20Checker%20Game<br/>
 Complete Form Validation: https://vikaspundir24.github.io/Vanilla-Js_Projects/Complete%20Form%20Validation<br/>
+Expense Tracker: https://vikaspundir24.github.io/Vanilla-Js_Projects/Expense%20Tracker<br/>
