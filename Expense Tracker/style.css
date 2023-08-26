@@ -4,7 +4,7 @@
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
-    font-size: 24px;
+    font-size: 18px;
     
 }
 h3{
@@ -48,7 +48,7 @@ h3{
     justify-content: space-between;
     flex-direction: column;
     align-items: center;
-    padding: 2em;
+    padding: 1em;
     background-color: white;
     border-radius: 20px;
     gap: 20px;
@@ -58,6 +58,14 @@ h3{
     overflow-y: scroll;
     width: 22em;
 }
+li{
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+
 .form{
     display: flex;
     justify-content: center;
