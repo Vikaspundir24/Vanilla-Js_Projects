@@ -28,38 +28,37 @@ form.addEventListener("submit", (e) => {
     alert("Enter Amount");
     inputAmount.value = "";
   } else {
-    addExpense();
+    addExpense(inputAmount.value,inputData.value);
     inputAmount.value = "";
     inputData.value = "";
   }
 });
 
-function addExpense() {
+function addExpense(amount,data) {
   let li = document.createElement("li");
-  li.innerHTML = inputData.value;
+  li.innerHTML = data;
   lists.appendChild(li);
-  let remainingBal = 0;
-  let totalExpenditure = 0;
 
   if (choose.value === debitOption.value) {
     let span = document.createElement("span");
-    span.innerText = `-${inputAmount.value}`;
+    span.innerText = `-${amount}`;
     li.appendChild(span);
     li.style.border = "2px solid red";
     span.style.color = "red";
-    remainingBal = remainingBal - inputAmount.value;
-    totalExpenditure = totalExpenditure + inputAmount.value;
-    console.log(remainingBal);
-    console.log(totalExpenditure);
-  } else {
+    remainingBal = parseInt(remainingBal) - parseInt(amount);
+    totalExpenditure = parseInt(totalExpenditure) + parseInt(amount);
+    console.log("remaining" + remainingBal);
+    console.log("total exp" + totalExpenditure);
+  } 
+  else {
     let span = document.createElement("span");
-    span.innerText = `+${inputAmount.value}`;
+    span.innerText = `+${amount}`;
     li.appendChild(span);
     li.style.border = "2px solid green";
     span.style.color = "green";
-    remainingBal = remainingBal + inputAmount.value;
-    console.log(remainingBal);
-    console.log(totalExpenditure);
+    remainingBal = parseInt(remainingBal) + parseInt(amount);
+    console.log("remaining" + remainingBal);
+    console.log("total exp" + totalExpenditure);
   }
   saveData();
 }
@@ -68,6 +67,7 @@ function saveData() {
   localStorage.setItem("Expenses", lists.innerHTML);
   localStorage.setItem("Remaining Balance", remainingBal);
   localStorage.setItem("Total Expenditure", totalExpenditure);
+  showData();
 }
 function showData() {
   lists.innerHTML = localStorage.getItem("Expenses");
@@ -81,5 +81,6 @@ clear.addEventListener("click", () => {
   localStorage.removeItem("Total Expenditure");
   showData();
 });
+
 
 showData();
