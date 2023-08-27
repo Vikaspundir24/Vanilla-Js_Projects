@@ -5,7 +5,6 @@ body {
     }
     
     .player{
-      height: 95vh;
       display: flex;
       align-items: center;
       flex-direction: column;
@@ -204,3 +203,31 @@ body {
         animation-delay: 0s;
     }
     
+
+    @media Screen and (max-width:767px) {
+      *{
+       font-size: 12px;
+      }
+      .wrapper{
+        padding: 30px;
+      }
+      .buttons{
+        width: 10vw;
+      }
+      .repeat-track,
+    .random-track,
+    .playpause-track,
+    .prev-track,
+    .next-track {
+    padding: 10px;
+    opacity: 0.8;
+    transition: opacity .2s;;
+    }
+    .track-art{
+      height: 150px;
+      width: 150px;
+    }
+    .loader{
+      height: 40px;
+    }
+    }
