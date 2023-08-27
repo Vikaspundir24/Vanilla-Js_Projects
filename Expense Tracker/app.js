@@ -6,8 +6,10 @@ const lists = document.getElementById("lists");
 const clear = document.getElementById("clear-data");
 const showBal = document.getElementById("remaining-bal");
 const showExpenditure = document.getElementById("total-expenditure");
+const showTotalTransactions = document.getElementById("total-transactions")
 let remainingBal = 0;
 let totalExpenditure = 0;
+let totalTransactions = 0;
 
 choose.addEventListener("change", () => {
   if (choose.value === debitOption.value) {
@@ -28,9 +30,11 @@ form.addEventListener("submit", (e) => {
     alert("Enter Amount");
     inputAmount.value = "";
   } else {
+    totalTransactions++;
     addExpense(inputAmount.value,inputData.value);
     inputAmount.value = "";
     inputData.value = "";
+    console.log(totalTransactions)
   }
 });
 
@@ -67,18 +71,21 @@ function saveData() {
   localStorage.setItem("Expenses", lists.innerHTML);
   localStorage.setItem("Remaining Balance", remainingBal);
   localStorage.setItem("Total Expenditure", totalExpenditure);
+  localStorage.setItem("Total Transactions", totalTransactions);
   showData();
 }
 function showData() {
   lists.innerHTML = localStorage.getItem("Expenses");
   showBal.innerText = localStorage.getItem("Remaining Balance");
   showExpenditure.innerText = localStorage.getItem("Total Expenditure");
+  showTotalTransactions.innerText = localStorage.getItem("Total Transactions");
 }
 
 clear.addEventListener("click", () => {
   localStorage.removeItem("Expenses");
   localStorage.removeItem("Remaining Balance");
   localStorage.removeItem("Total Expenditure");
+  localStorage.removeItem("Total Transactions");
   showData();
 });
 
