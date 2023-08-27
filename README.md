@@ -10,3 +10,4 @@ Word Count App: https://vikaspundir24.github.io/Vanilla-Js_Projects/Word%20Count
 Palindrome Checker Game: https://vikaspundir24.github.io/Vanilla-Js_Projects/Palindrome%20Checker%20Game<br/>
 Complete Form Validation: https://vikaspundir24.github.io/Vanilla-Js_Projects/Complete%20Form%20Validation<br/>
 Expense Tracker: https://vikaspundir24.github.io/Vanilla-Js_Projects/Expense%20Tracker<br/>
+Mini Music Player: https://vikaspundir24.github.io/Vanilla-Js_Projects/Mini%20Music%20Player<br/>
