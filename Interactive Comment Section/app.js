@@ -6,7 +6,7 @@ const add = document.querySelector(".add");
 const wrappers = document.querySelectorAll("wrapper");
 
 
-function load() {
+
   fetch("/data.json")
     .then((response) => response.json())
     .then((json) => {
@@ -14,7 +14,7 @@ function load() {
       showData(data);
       console.log(data)
     });
-}
+
 
 
 
@@ -82,7 +82,7 @@ showData = (data) => {
         <h6>${data.comments[1].replies[0].user.username}</h6>
         <p><span></span>${data.comments[1].replies[0].createdAt}</p>
       </div>
-      <div class="reply-button" onClick = "replyBtn2()">
+      <div class="reply-button" onClick = "replyBtn3()">
         <img src="images/icon-reply.svg" alt="">
         <p>Reply</p>
       </div>
@@ -106,13 +106,13 @@ showData = (data) => {
         <h6>${data.comments[1].replies[1].user.username}</h6>
         <p><span></span>${data.comments[1].replies[1].createdAt}</p>
       </div>
-      <div class="delete-button">
+      <div class="delete-button" onClick = "deleteBtn()">
         <img src="images/icon-delete.svg" alt="">
         <p>Delete</p>
       </div>
-      <div class="reply-button" onClick = "replyBtn2()">
-        <img src="images/icon-reply.svg" alt="">
-        <p>Reply</p>
+      <div class="reply-button" onClick = "editBtn()">
+        <img src="images/icon-edit.svg" alt="">
+        <p>Edit</p>
       </div>
     </div>
     <div class="content">
@@ -122,12 +122,12 @@ showData = (data) => {
 
   add.innerHTML = `
   <img class="dp" src=${data.currentUser.image.png} alt="">
-      <textarea name="" id="" cols="30" rows="10" placeholder="Add a comment"></textarea>
-      <button class="text-input">Send</button>`;
+      <textarea name="" id="send-content" cols="30" rows="10" placeholder="Add a comment"></textarea>
+      <button class="text-input" onClick = "newComment()">Send</button>`;
 
 }
 
-load();
+
 
 function replyBtn1(){
    let replyDiv = document.createElement("div")
@@ -155,5 +155,65 @@ function replyBtn2(){
   document.querySelector(".wrapper-2").appendChild(replyDiv2)
 
 }
+function replyBtn3(){
+   let replyDiv3 = document.createElement("div")
+   replyDiv3.classList.add("your-reply-input")
+   replyDiv3.innerHTML = `
+    <div class="id">
+     <img class="dp" src="images/avatars/image-juliusomo.png" alt="">
+     <textarea name="" id="" cols="30" rows="10" placeholder="Add a comment">
+     @ramsesmiron</textarea>
+     <button class="text-input">Reply</button>
+    </div>`
+  document.querySelector(".wrapper-2").appendChild(replyDiv3)
 
+}
+
+function newComment() {
+  let newContent = document.getElementById("send-content").value
+  if(newContent){
+  let newComment = document.createElement("div")
+  newComment.classList.add("wrapper")
+  
+  newComment.innerHTML = `
+  <div class="id">
+  <div class="score">
+    <span>+</span>
+    <span class="score-value">0</span>
+    <span>-</span>
+  </div>
+  <div class="right-container">
+    <div class="user">
+      <div class="details">
+        <img class="dp" src="images/avatars/image-juliusomo.png"  alt="">
+        <h6>juliusomo</h6>
+        <p>just now</p>
+      </div>
+      <div class="delete-button" onClick = "deleteBtn()">
+        <img src="images/icon-delete.svg" alt="">
+        <p>Delete</p>
+      </div>
+      <div class="reply-button" onClick = "editBtn(this)">
+        <img src="images/icon-edit.svg" alt="">
+        <p>Edit</p>
+      </div>
+    </div>
+    <div class="content">
+      <p>${newContent}</p>
+    </div>
+  </div>
+</div>`
+document.querySelector(".all").appendChild(newComment)
+document.getElementById("send-content").value = ""
+  }
+  else{
+    return
+  }
+}
+
+
+let delBtns = document.getElementsByClassName("delete-button")
+delBtns.forEach((del) => {
+  console.log(del)
+})
 
