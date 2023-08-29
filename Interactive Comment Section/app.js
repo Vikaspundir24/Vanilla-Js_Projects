@@ -106,11 +106,11 @@ showData = (data) => {
         <h6>${data.comments[1].replies[1].user.username}</h6>
         <p><span></span>${data.comments[1].replies[1].createdAt}</p>
       </div>
-      <div class="delete-button" onClick = "deleteBtn()">
+      <div class="delete-button" >
         <img src="images/icon-delete.svg" alt="">
         <p>Delete</p>
       </div>
-      <div class="reply-button" onClick = "editBtn()">
+      <div class="edit-button">
         <img src="images/icon-edit.svg" alt="">
         <p>Edit</p>
       </div>
@@ -189,11 +189,11 @@ function newComment() {
         <h6>juliusomo</h6>
         <p>just now</p>
       </div>
-      <div class="delete-button" onClick = "deleteBtn()">
+      <div class="delete-button">
         <img src="images/icon-delete.svg" alt="">
         <p>Delete</p>
       </div>
-      <div class="reply-button" onClick = "editBtn(this)">
+      <div class="edit-button" >
         <img src="images/icon-edit.svg" alt="">
         <p>Edit</p>
       </div>
@@ -211,9 +211,26 @@ document.getElementById("send-content").value = ""
   }
 }
 
+document.addEventListener("click", (e) => {
+  let targetDel = e.target.closest(".delete-button")
+  let targetEdit = e.target.closest(".edit-button")
+  
 
-let delBtns = document.getElementsByClassName("delete-button")
-delBtns.forEach((del) => {
-  console.log(del)
+  if(targetDel){
+    targetDel.parentNode.parentNode.parentNode.parentNode.remove()
+    console.log("deleted")
+  }
+
+  else if(!targetEdit.classList.contains("disabled")) {
+    let parent =  targetEdit.parentNode.nextElementSibling
+    let editBtn = `<button class="edit-btn">Edit</button>`
+    let rightContainer = targetEdit.parentNode.parentNode
+    rightContainer.insertAdjacentHTML("beforeend",editBtn)
+    console.log(parent)
+    let text = parent.innerText
+    let textArea = ` <textarea name="" id="" cols="30" rows="10" placeholder="Add a comment">${text}</textarea>`
+    parent.innerHTML = ""
+    parent.innerHTML = textArea
+    targetEdit.classList.add('disabled');
+  }
 })
-
