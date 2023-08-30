@@ -149,12 +149,17 @@ button{
     padding: 5px;
 }
 
-.edit-btn{
+.edit-btn-final{
     width: 5vw;
     position: relative;
     left: 87%;
+    
 }
 
 .disabled{
     color: red
+}
+
+.disabled-btn{
+    display: none;
 }

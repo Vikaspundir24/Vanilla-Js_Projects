@@ -137,7 +137,7 @@ function replyBtn1(){
      <img class="dp" src="images/avatars/image-juliusomo.png" alt="">
      <textarea name="" id="" cols="30" rows="10" placeholder="Add a comment">
      @amyrobson</textarea>
-     <button class="text-input">Reply</button>
+     <button class="text-input text-input-1">Reply</button>
     </div>`
   document.querySelector(".wrapper-1").appendChild(replyDiv)
 
@@ -214,23 +214,74 @@ document.getElementById("send-content").value = ""
 document.addEventListener("click", (e) => {
   let targetDel = e.target.closest(".delete-button")
   let targetEdit = e.target.closest(".edit-button")
-  
+  let editBtnFinal = e.target.closest(".edit-btn-final")
+  let replyBtn1 = e.target.closest(".text-input-1")
 
   if(targetDel){
     targetDel.parentNode.parentNode.parentNode.parentNode.remove()
     console.log("deleted")
   }
 
-  else if(!targetEdit.classList.contains("disabled")) {
+  else if(targetEdit && !targetEdit.classList.contains("disabled")) {
     let parent =  targetEdit.parentNode.nextElementSibling
-    let editBtn = `<button class="edit-btn">Edit</button>`
+    let editBtn = `<button class="edit-btn-final">Edit</button>`
     let rightContainer = targetEdit.parentNode.parentNode
     rightContainer.insertAdjacentHTML("beforeend",editBtn)
-    console.log(parent)
     let text = parent.innerText
     let textArea = ` <textarea name="" id="" cols="30" rows="10" placeholder="Add a comment">${text}</textarea>`
     parent.innerHTML = ""
     parent.innerHTML = textArea
     targetEdit.classList.add('disabled');
   }
+
+  else if(editBtnFinal){
+    let targetEdit = document.querySelector(".disabled")
+    let parent =  targetEdit.parentNode.nextElementSibling
+    let textArea = parent.innerHTML
+    let textAreaValue = textArea.value
+    console.log(textAreaValue)
+    let para = `<p>${textArea.value}</p>`
+    console.log(para)
+    parent.innerHTML = ""
+    parent.innerHTML = para;
+    editBtnFinal.classList.add("disabled-btn")
+    targetEdit.classList.remove("disabled")
+  }
+
+  else if(replyBtn1){
+    console.log("clicked")
+    let textAreaValue = replyBtn1.previousSibling.previousSibling.value
+    console.log(textAreaValue)
+    let afterReply = `<div class="score">
+    <span>+</span>
+    <span class="score-value">0</span>
+    <span>-</span>
+  </div>
+  <div class="right-container">
+    <div class="user">
+      <div class="details">
+        <img class="dp" src="images/avatars/image-juliusomo.png"  alt="">
+        <h6>juliusomo</h6>
+        <p>just now</p>
+      </div>
+      <div class="delete-button">
+        <img src="images/icon-delete.svg" alt="">
+        <p>Delete</p>
+      </div>
+      <div class="edit-button" >
+        <img src="images/icon-edit.svg" alt="">
+        <p>Edit</p>
+      </div>
+    </div>
+    <div class="content">
+      <p>${textAreaValue}</p>
+    </div>
+  </div>`
+
+   replyBtn1.parentNode.innerHTML = afterReply
+  
+  }
+
+
+ 
 })
