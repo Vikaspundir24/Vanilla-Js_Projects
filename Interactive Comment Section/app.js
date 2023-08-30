@@ -5,21 +5,78 @@ const id_4 = document.querySelector(".id-4");
 const add = document.querySelector(".add");
 const wrappers = document.querySelectorAll("wrapper");
 
-
-
-  fetch("/data.json")
-    .then((response) => response.json())
-    .then((json) => {
-      let data = json;
-      showData(data);
-      console.log(data)
-    });
-
+data = {
+  "currentUser": {
+    "image": { 
+      "png": "./images/avatars/image-juliusomo.png",
+      "webp": "./images/avatars/image-juliusomo.webp"
+    },
+    "username": "juliusomo"
+  },
+  "comments": [
+    {
+      "id": 1,
+      "content": "Impressive! Though it seems the drag feature could be improved. But overall it looks incredible. You've nailed the design and the responsiveness at various breakpoints works really well.",
+      "createdAt": "1 month ago",
+      "score": 12,
+      "user": {
+        "image": { 
+          "png": "./images/avatars/image-amyrobson.png",
+          "webp": "./images/avatars/image-amyrobson.webp"
+        },
+        "username": "amyrobson"
+      },
+      "replies": []
+    },
+    {
+      "id": 2,
+      "content": "Woah, your project looks awesome! How long have you been coding for? I'm still new, but think I want to dive into React as well soon. Perhaps you can give me an insight on where I can learn React? Thanks!",
+      "createdAt": "2 weeks ago",
+      "score": 5,
+      "user": {
+        "image": { 
+          "png": "./images/avatars/image-maxblagun.png",
+          "webp": "./images/avatars/image-maxblagun.webp"
+        },
+        "username": "maxblagun"
+      },
+      "replies": [
+        {
+          "id": 3,
+          "content": "If you're still new, I'd recommend focusing on the fundamentals of HTML, CSS, and JS before considering React. It's very tempting to jump ahead but lay a solid foundation first.",
+          "createdAt": "1 week ago",
+          "score": 4,
+          "replyingTo": "maxblagun",
+          "user": {
+            "image": { 
+              "png": "./images/avatars/image-ramsesmiron.png",
+              "webp": "./images/avatars/image-ramsesmiron.webp"
+            },
+            "username": "ramsesmiron"
+          }
+        },
+        {
+          "id": 4,
+          "content": "I couldn't agree more with this. Everything moves so fast and it always seems like everyone knows the newest library/framework. But the fundamentals are what stay constant.",
+          "createdAt": "2 days ago",
+          "score": 2,
+          "replyingTo": "ramsesmiron",
+          "user": {
+            "image": { 
+              "png": "./images/avatars/image-juliusomo.png",
+              "webp": "./images/avatars/image-juliusomo.webp"
+            },
+            "username": "juliusomo"
+          }
+        }
+      ]
+    }
+  ]
+}
 
 
 
 showData = (data) => {
-
   id_1.innerHTML = ` 
   <div class="score">
     <span>+</span>
@@ -92,7 +149,6 @@ showData = (data) => {
     </div>
   </div>`;
 
-
   id_4.innerHTML = ` 
   <div class="score">
     <span>+</span>
@@ -124,58 +180,54 @@ showData = (data) => {
   <img class="dp" src=${data.currentUser.image.png} alt="">
       <textarea name="" id="send-content" cols="30" rows="10" placeholder="Add a comment"></textarea>
       <button class="text-input" onClick = "newComment()">Send</button>`;
+};
 
-}
+showData(data)
 
-
-
-function replyBtn1(){
-   let replyDiv = document.createElement("div")
-   replyDiv.classList.add("your-reply-input")
-   replyDiv.innerHTML = `
+function replyBtn1() {
+  let replyDiv = document.createElement("div");
+  replyDiv.classList.add("your-reply-input");
+  replyDiv.innerHTML = `
     <div class="id">
      <img class="dp" src="images/avatars/image-juliusomo.png" alt="">
      <textarea name="" id="" cols="30" rows="10" placeholder="Add a comment">
      @amyrobson</textarea>
      <button class="text-input text-input-1">Reply</button>
-    </div>`
-  document.querySelector(".wrapper-1").appendChild(replyDiv)
-
+    </div>`;
+  document.querySelector(".wrapper-1").appendChild(replyDiv);
 }
-function replyBtn2(){
-   let replyDiv2 = document.createElement("div")
-   replyDiv2.classList.add("your-reply-input")
-   replyDiv2.innerHTML = `
+function replyBtn2() {
+  let replyDiv2 = document.createElement("div");
+  replyDiv2.classList.add("your-reply-input");
+  replyDiv2.innerHTML = `
     <div class="id">
      <img class="dp" src="images/avatars/image-juliusomo.png" alt="">
      <textarea name="" id="" cols="30" rows="10" placeholder="Add a comment">
      @maxblagun</textarea>
      <button class="text-input">Reply</button>
-    </div>`
-  document.querySelector(".wrapper-2").appendChild(replyDiv2)
-
+    </div>`;
+  document.querySelector(".wrapper-2").appendChild(replyDiv2);
 }
-function replyBtn3(){
-   let replyDiv3 = document.createElement("div")
-   replyDiv3.classList.add("your-reply-input")
-   replyDiv3.innerHTML = `
+function replyBtn3() {
+  let replyDiv3 = document.createElement("div");
+  replyDiv3.classList.add("your-reply-input");
+  replyDiv3.innerHTML = `
     <div class="id">
      <img class="dp" src="images/avatars/image-juliusomo.png" alt="">
      <textarea name="" id="" cols="30" rows="10" placeholder="Add a comment">
      @ramsesmiron</textarea>
      <button class="text-input">Reply</button>
-    </div>`
-  document.querySelector(".wrapper-2").appendChild(replyDiv3)
-
+    </div>`;
+  document.querySelector(".wrapper-2").appendChild(replyDiv3);
 }
 
 function newComment() {
-  let newContent = document.getElementById("send-content").value
-  if(newContent){
-  let newComment = document.createElement("div")
-  newComment.classList.add("wrapper")
-  
-  newComment.innerHTML = `
+  let newContent = document.getElementById("send-content").value;
+  if (newContent) {
+    let newComment = document.createElement("div");
+    newComment.classList.add("wrapper");
+
+    newComment.innerHTML = `
   <div class="id">
   <div class="score">
     <span>+</span>
@@ -202,56 +254,49 @@ function newComment() {
       <p>${newContent}</p>
     </div>
   </div>
-</div>`
-document.querySelector(".all").appendChild(newComment)
-document.getElementById("send-content").value = ""
-  }
-  else{
-    return
+</div>`;
+    document.querySelector(".all").appendChild(newComment);
+    document.getElementById("send-content").value = "";
+  } else {
+    return;
   }
 }
 
 document.addEventListener("click", (e) => {
-  let targetDel = e.target.closest(".delete-button")
-  let targetEdit = e.target.closest(".edit-button")
-  let editBtnFinal = e.target.closest(".edit-btn-final")
-  let replyBtn1 = e.target.closest(".text-input-1")
+  let targetDel = e.target.closest(".delete-button");
+  let targetEdit = e.target.closest(".edit-button");
+  let editBtnFinal = e.target.closest(".edit-btn-final");
+  let replyBtn1 = e.target.closest(".text-input-1");
 
-  if(targetDel){
-    targetDel.parentNode.parentNode.parentNode.parentNode.remove()
-    console.log("deleted")
-  }
-
-  else if(targetEdit && !targetEdit.classList.contains("disabled")) {
-    let parent =  targetEdit.parentNode.nextElementSibling
-    let editBtn = `<button class="edit-btn-final">Edit</button>`
-    let rightContainer = targetEdit.parentNode.parentNode
-    rightContainer.insertAdjacentHTML("beforeend",editBtn)
-    let text = parent.innerText
-    let textArea = ` <textarea name="" id="" cols="30" rows="10" placeholder="Add a comment">${text}</textarea>`
-    parent.innerHTML = ""
-    parent.innerHTML = textArea
-    targetEdit.classList.add('disabled');
-  }
-
-  else if(editBtnFinal){
-    let targetEdit = document.querySelector(".disabled")
-    let parent =  targetEdit.parentNode.nextElementSibling
-    let textArea = parent.innerHTML
-    let textAreaValue = textArea.value
-    console.log(textAreaValue)
-    let para = `<p>${textArea.value}</p>`
-    console.log(para)
-    parent.innerHTML = ""
+  if (targetDel) {
+    targetDel.parentNode.parentNode.parentNode.parentNode.remove();
+    console.log("deleted");
+  } else if (targetEdit && !targetEdit.classList.contains("disabled")) {
+    let parent = targetEdit.parentNode.nextElementSibling;
+    let editBtn = `<button class="edit-btn-final">Edit</button>`;
+    let rightContainer = targetEdit.parentNode.parentNode;
+    rightContainer.insertAdjacentHTML("beforeend", editBtn);
+    let text = parent.innerText;
+    let textArea = ` <textarea name="" id="" cols="30" rows="10" placeholder="Add a comment">${text}</textarea>`;
+    parent.innerHTML = "";
+    parent.innerHTML = textArea;
+    targetEdit.classList.add("disabled");
+  } else if (editBtnFinal) {
+    let targetEdit = document.querySelector(".disabled");
+    let parent = targetEdit.parentNode.nextElementSibling;
+    let textArea = parent.innerHTML;
+    let textAreaValue = textArea.value;
+    console.log(textAreaValue);
+    let para = `<p>${textArea.value}</p>`;
+    console.log(para);
+    parent.innerHTML = "";
     parent.innerHTML = para;
-    editBtnFinal.classList.add("disabled-btn")
-    targetEdit.classList.remove("disabled")
-  }
-
-  else if(replyBtn1){
-    console.log("clicked")
-    let textAreaValue = replyBtn1.previousSibling.previousSibling.value
-    console.log(textAreaValue)
+    editBtnFinal.classList.add("disabled-btn");
+    targetEdit.classList.remove("disabled");
+  } else if (replyBtn1) {
+    console.log("clicked");
+    let textAreaValue = replyBtn1.previousSibling.previousSibling.value;
+    console.log(textAreaValue);
     let afterReply = `<div class="score">
     <span>+</span>
     <span class="score-value">0</span>
@@ -276,12 +321,9 @@ document.addEventListener("click", (e) => {
     <div class="content">
       <p>${textAreaValue}</p>
     </div>
-  </div>`
+  </div>`;
 
-   replyBtn1.parentNode.innerHTML = afterReply
-  
+    replyBtn1.parentNode.innerHTML = afterReply;
   }
+});
 
-
- 
-})
