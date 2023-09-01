@@ -360,11 +360,10 @@ document.addEventListener("click", (e) => {
     let targetEdit = document.querySelector(".disabled");
     let parent = targetEdit.parentNode.nextElementSibling;
     console.log(parent)
-    let textArea = parent.innerHTML
+    let textArea = parent.children[0]
     console.log(textArea)
-    textArea.innerText = "hey"
-    console.log(textArea.innerText)
-     parent.innerHTML = `<p>${textArea.value}</p>`
+    let textAreaValue = textArea.value
+    parent.innerHTML = `<p>${textAreaValue}</p>`
     editBtnFinal.classList.add("disabled-btn");
     targetEdit.classList.remove("disabled");  
   }
