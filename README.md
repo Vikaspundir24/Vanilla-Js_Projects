@@ -12,4 +12,3 @@ Complete Form Validation: https://vikaspundir24.github.io/Vanilla-Js_Projects/Co
 Expense Tracker: https://vikaspundir24.github.io/Vanilla-Js_Projects/Expense%20Tracker<br/>
 Mini Music Player: https://vikaspundir24.github.io/Vanilla-Js_Projects/Mini%20Music%20Player<br/>
 Auto Complete Search: https://vikaspundir24.github.io/Vanilla-Js_Projects/Auto%20Complete%20Search<br/>
-Interactive Comment Section: https://vikaspundir24.github.io/Vanilla-Js_Projects/Interactive%20Comment%20Section<br/>
